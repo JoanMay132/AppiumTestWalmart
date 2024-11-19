@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="End to End FrameWork Test(failed)">
+    <classes>
+      <class name="org.joanmayAcademy.eCommerce_Tc_4">
+        <methods>
+          <include name="TotalAmountTest"/>
+          <include name="tearDownDriver"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- org.joanmayAcademy.eCommerce_Tc_4 -->
+    </classes>
+  </test> <!-- End to End FrameWork Test(failed) -->
+  <test thread-count="5" name="Error Validations Tests(failed)">
+    <classes>
+      <class name="org.joanmayAcademy.eCommerce_Tc_1">
+        <methods>
+          <include name="FillForm_HappyPathTest"/>
+          <include name="preSetUp"/>
+          <include name="tearDownDriver"/>
+          <include name="FillForm_ErrorValidationTest"/>
+          <include name="configureAppium"/>
+        </methods>
+      </class> <!-- org.joanmayAcademy.eCommerce_Tc_1 -->
+    </classes>
+  </test> <!-- Error Validations Tests(failed) -->
+  <test thread-count="5" name="iOS Test(failed)">
+    <classes>
+      <class name="org.joanmayAcademy.ios.tests.iOSBasics">
+        <methods>
+          <include name="tearDownDriver"/>
+          <include name="configureAppium"/>
+          <include name="IOSBasicsTest"/>
+        </methods>
+      </class> <!-- org.joanmayAcademy.ios.tests.iOSBasics -->
+    </classes>
+  </test> <!-- iOS Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

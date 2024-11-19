@@ -1,0 +1,28 @@
+package org.joanmayAcademy.ios.tests;
+
+
+import org.joanmayAcademy.PageObjects.ios.AlertViewsPage;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class iOSBasics extends iOSBaseTestServer{
+	
+	@Test
+	public void IOSBasicsTest() throws InterruptedException {
+		
+		// xpath, classname IOS, IOSClassCHain, IOSPredicatesString, accesibilityID, ID
+		AlertViewsPage alertViewsPage = homePage.selectAlertViews();
+		//xpath is too low en ios
+		//xpath - XML language - App source
+		// Below we use IOSClassChain
+		alertViewsPage.fillTextLabel("Hello");
+		
+		driver.findElement(AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value == 'Confirm / Cancel' ")).click();
+		String text = driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH[c] 'A message' ")).getText();
+		System.out.println(text);
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == 'Confirm'")).click();
+		Thread.sleep(4000);
+	}
+
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
+    <booleanAttribute key="M2_BATCH" value="false"/>
+    <stringAttribute key="M2_GOALS" value="-U archetype:generate"/>
+    <listAttribute key="M2_PROPERTIES">
+        <listEntry value="archetypeGroupId=org.apache.maven.archetypes"/>
+        <listEntry value="archetypeArtifactId=maven-archetype-quickstart"/>
+        <listEntry value="archetypeVersion=1.1"/>
+        <listEntry value="groupId=org.joanmayAcademy"/>
+        <listEntry value="artifactId=ExtentReports"/>
+        <listEntry value="version=0.0.1-SNAPSHOT"/>
+        <listEntry value="package=org.joanmayAcademy.ExtentReports"/>
+        <listEntry value="outputDirectory=/Users/joanmay/eclipse-workspace"/>
+    </listAttribute>
+    <booleanAttribute key="M2_SAVE_BEFORE_LAUNCH" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.ui.private" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="/var/folders/8p/c6tzjd_j6s7b4fts4zj92mp80000gn/T/m2e-archetypeGenerator14485670718626224458"/>
+</launchConfiguration>

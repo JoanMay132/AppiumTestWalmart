@@ -1,0 +1,19 @@
+package org.joanmayAcademy.PageObjects.android;
+
+import org.joanmayAcademy.utils.AndroidActions;
+import org.openqa.selenium.support.PageFactory;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
+public class ProductCatalogue extends AndroidActions {
+
+	AndroidDriver driver; // Global object
+	// Creating a constructor
+	public ProductCatalogue(AndroidDriver driver) {
+		super(driver); //call constructor
+		this.driver = driver;
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this); // 
+		
+	}
+}

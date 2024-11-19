@@ -1,0 +1,14 @@
+package org.joanmayAcademy.ExtentReports;
+
+import org.testng.annotations.Test;
+
+public class ExtentReportDemo {
+	
+	@Test
+	public void initialDemo() {
+		System.setProperty("webdriver.chrome.driver", null);
+	
+		WebDriver driver = new ChromeDriver();
+	}
+
+}

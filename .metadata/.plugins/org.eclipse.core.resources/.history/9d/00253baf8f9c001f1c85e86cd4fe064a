@@ -1,0 +1,33 @@
+package org.joanmayAcademy.utils;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+
+
+import io.appium.java_client.ios.IOSDriver;
+
+public class iOSActions {
+
+	
+	IOSDriver driver;
+	public iOSActions(IOSDriver driver) {
+		this.driver = driver;
+	}
+	
+	
+	
+	public void scrollToWebElement(WebElement ele) {
+		Map<String,Object> params = new HashMap<>();
+		params.put("direction","down");
+		params.put("element", ((RemoteWebElement) ele).getId());
+		
+		driver.executeScript("mobile:scroll", params);
+		
+
+	}
+	
+}

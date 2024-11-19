@@ -1,0 +1,89 @@
+package org.joanmayAcademy;
+
+
+
+import java.time.Duration;
+import java.util.List;
+import java.util.Set;
+
+import org.joanmayAcademy.PageObjects.android.CartPage;
+import org.joanmayAcademy.PageObjects.android.FormPage;
+import org.joanmayAcademy.PageObjects.android.ProductCatalogue;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+
+public class eCommerce_Tc_4 extends MobileBaseTestServer {
+
+	@Test
+	public void TotalAmountTest() throws InterruptedException {
+		// Creating object of first page
+		//FormPage formPage = new FormPage(driver);
+		formPage.setNameField("Joan");
+		formPage.setGender("female");
+		formPage.setCountrySelection("Argentina");
+		ProductCatalogue productCatalogue = formPage.submitForm();
+	
+		// Selecting 2 items for adding to the cart
+		// Creating object for the class
+		productCatalogue.addItemToCartByIndex(0); // Passing the cero index!
+		productCatalogue.addItemToCartByIndex(0); // Passing the cero index!
+
+		CartPage cartPage = productCatalogue.goToCartPage();
+	
+		// Waiting until next page is fully loaded
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.attributeContains(driver.findElement(By.id("com.androidsample.generalstore:id/toolbar_title")), "text", "Cart"));
+
+		
+		// Adding total amount of prices
+		List<WebElement> productPrices = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
+		int count = productPrices.size();
+		double totalSum = 0;
+		for (int i = 0; i < count; i++) {
+			String amountString = productPrices.get(i).getText();	
+			Double price = Double.parseDouble( amountString.substring(1));
+			totalSum = totalSum + price; // 160.97 + 120 = 280.97
+		}
+		
+		// Assertion total amount
+		String displaySum = driver.findElement(By.id("com.androidsample.generalstore:id/totalAmountLbl")).getText();	
+		Double displayFormattedSum = getFormattedAmount(displaySum);
+		Assert.assertEquals(totalSum, displayFormattedSum);
+		
+		// EVERYTHING OK UNTIL HERE
+		
+		WebElement ele = driver.findElement(By.id("com.androidsample.generalstore:id/termsButton"));
+		LongPressGesture(ele);
+		driver.findElement(By.id("android:id/button1")).click();
+		driver.findElement(AppiumBy.className("android.widget.CheckBox")).click();
+		driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
+		Thread.sleep(6000);
+		
+		//Hybrid - Google page
+		Set<String> contexts = driver.getContextHandles();
+		for (String contextName : contexts) {
+			
+			System.out.println(contextName);
+		}
+		driver.context("WEBVIEW_com.androidsample.generalstore"); //Chromedriver
+		driver.findElement(By.name("q")).sendKeys("rahul shetty academy");
+		driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
+		driver.pressKey(new KeyEvent(AndroidKey.BACK));
+		driver.context("NATIVE_APP");
+
+		
+	}
+
+
+}

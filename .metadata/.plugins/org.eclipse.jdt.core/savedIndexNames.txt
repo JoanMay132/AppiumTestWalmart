@@ -1,0 +1,21 @@
+INDEX VERSION 1.134+/Users/joanmay/eclipse-workspace/.metadata/.plugins/org.eclipse.jdt.core
+3010666109.index
+3985245341.index
+2211664504.index
+2879815385.index
+334142433.index
+2022895509.index
+2901144258.index
+1865797976.index
+686277915.index
+2934901477.index
+1034663285.index
+1806962315.index
+1084980270.index
+651783554.index
+2703160786.index
+1586714299.index
+3560796008.index
+4241951114.index
+976584157.index
+3359577069.index

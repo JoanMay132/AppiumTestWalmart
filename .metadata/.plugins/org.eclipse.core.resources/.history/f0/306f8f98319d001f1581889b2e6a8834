@@ -1,0 +1,24 @@
+package org.joanmayAcademy.ExtentReports;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class ExtentReportDemo {
+	
+	@BeforeTest
+	public void config() {
+		// ExtentReports , ExtentSparkReporter class
+	}
+	
+	@Test
+	public void initialDemo() {
+		System.setProperty("webdriver.chrome.driver", null);
+	
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com");
+		
+		System.out.println(driver.getTitle());
+	}
+
+}

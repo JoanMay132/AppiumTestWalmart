@@ -1,0 +1,32 @@
+package iOSTests;
+
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class iOSBasics extends iOSBaseTestServer{
+	
+	@Test
+	public void IOSBasicsTest() throws InterruptedException {
+		
+		// xpath, classname IOS, IOSClassCHain, IOSPredicatesString, accesibilityID, ID
+		driver.findElement(AppiumBy.accessibilityId("Alert Views")).click();
+		//xpath is too low en ios
+		//xpath - XML language - App source
+	//	driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name=\"Text Entry\"]")).click();
+		// Below we use IOSClassChain
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Text Entry\"`]")).click();
+		
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"Horizontal scroll bar, 1 page\"`][4]")).sendKeys("Joan");
+	
+		driver.findElement(AppiumBy.accessibilityId("OK")).click();
+		
+		driver.findElement(AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeStaticText' AND value == 'Confirm / Cancel' ")).click();
+		String text = driver.findElement(AppiumBy.iOSNsPredicateString("name BEGINSWITH[c] 'A message' ")).getText();
+		System.out.println(text);
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == 'Confirm'")).click();
+		Thread.sleep(4000);
+	}
+
+}
